@@ -210,7 +210,7 @@ _xml_item() {
 	`"
 	local item_title="` _date '%Y-%m-%d' "$isodate" `"
 	local item_url="$url_base/$epfilename"
-	local guid="` basename "$epfilename" .m4a `"
+	local guid="` sha256sum "$epfilename" | cut -d' ' -f 1 `"
 	local pubdate="` _date "$pubdateformat" "$isodate" "$TZ" `"
 
 	cat <<XML
